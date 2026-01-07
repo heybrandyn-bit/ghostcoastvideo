@@ -3,23 +3,26 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Button } from '../components/ui/button';
+
 export default function PodcastPage() {
   const benefits = [
-    "Professional audio recording and editing",
-    "Show concept development and branding",
-    "Guest booking and interview preparation",
-    "Distribution to all major podcast platforms",
-    "Show notes, transcripts, and promotional content",
-    "Analytics and growth strategy"
+    "Studio-quality audio that makes you sound like a pro",
+    "Unique show identity that stands out in your niche",
+    "Access to high-caliber guests who elevate your content",
+    "Seamless publishing across Spotify, Apple & more",
+    "Rich content suite from every episode",
+    "Data-driven strategies to grow your listener base"
   ];
+
   const features = [
-    { title: "Podcast Strategy", description: "Define your show's format, audience, and unique value proposition" },
-    { title: "Recording & Production", description: "Studio-quality audio recording and professional post-production" },
-    { title: "Guest Management", description: "Find, book, and prep guests who add value to your show" },
-    { title: "Distribution", description: "Publish to Apple Podcasts, Spotify, and all major platforms" },
-    { title: "Content Repurposing", description: "Turn episodes into blog posts, social content, and more" },
-    { title: "Growth & Promotion", description: "Marketing strategies to build and engage your audience" }
+    { title: "Podcast Strategy", description: "Transform your expertise into a show format that captivates your ideal audience" },
+    { title: "Recording & Production", description: "Get that polished, professional sound that keeps listeners coming back" },
+    { title: "Guest Management", description: "Connect with industry leaders who bring massive value to your listeners" },
+    { title: "Distribution", description: "Reach listeners everywhere they tune in - from Apple to Spotify and beyond" },
+    { title: "Content Repurposing", description: "Multiply your impact by turning episodes into engaging multi-channel content" },
+    { title: "Growth & Promotion", description: "Build a loyal community using proven audience growth tactics" }
   ];
+
   return (
     <div className="min-h-screen bg-[#FFF8F0]">
       <Navbar />
@@ -31,11 +34,11 @@ export default function PodcastPage() {
             <span className="text-[#F4E4C1] text-sm font-medium">Podcast Production</span>
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#F4E4C1] mb-6 leading-tight">
-            Build a Loyal Following<br />
-            <span className="text-[#D4A574]">Through Voice</span>
+            Turn Your Voice Into<br />
+            <span className="text-[#D4A574]">Your Greatest Asset</span>
           </h1>
           <p className="text-xl text-[#F4E4C1]/80 mb-8 max-w-3xl mx-auto">
-            From concept to distribution, we handle everything you need to launch and grow a podcast that builds deep connections with your audience and establishes you as an industry leader.
+            Stop wrestling with tech and logistics. We'll handle everything from planning to production, so you can focus on sharing your message and building genuine connections with listeners who become loyal fans.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -54,11 +57,12 @@ export default function PodcastPage() {
           </div>
         </div>
       </section>
+
       {/* Benefits Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2C1810] mb-12 text-center">
-            Complete Podcast Production Services
+            Your Path to Podcast Success
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {benefits.map((benefit, index) => (
@@ -70,11 +74,12 @@ export default function PodcastPage() {
           </div>
         </div>
       </section>
+
       {/* Features Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#2C1810] to-[#4A2818]">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#F4E4C1] mb-12 text-center">
-            Everything Your Podcast Needs
+            The Complete Podcast Solution
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, index) => (
@@ -86,14 +91,15 @@ export default function PodcastPage() {
           </div>
         </div>
       </section>
+
       {/* CTA Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center bg-gradient-to-br from-[#8B6F47] to-[#6F5739] rounded-2xl p-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-            Ready to Start Your Show?
+            Ready to Share Your Story?
           </h2>
           <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-            Let's create a podcast that builds your authority, engages your audience, and opens new opportunities for your business.
+            Join successful hosts who've built thriving communities and opened new doors through their podcasts. Your audience is waiting.
           </p>
           <Link to="/#contact">
             <Button className="bg-[#D4A574] hover:bg-[#E8C792] text-[#2C1810] px-8 py-6 text-lg font-bold cursor-pointer">
