@@ -3,22 +3,25 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Button } from '../components/ui/button';
+
 export default function VideoProductionPage() {
   const benefits = [
-    "Professional cinematic quality that rivals major productions",
-    "Brand storytelling that creates emotional connections",
-    "Product demos and explainer videos that drive conversions",
-    "Social media content optimized for maximum engagement",
-    "Customer testimonials that build trust and credibility",
-    "Corporate videos that communicate your mission"
+    "Turn relaxed conversations into revenue streams",
+    "Build authority while actually enjoying yourself",
+    "Network naturally through engaging discussions",
+    "Create weeks of content from one chill session",
+    "Grow your audience while keeping your sanity",
+    "Make money doing what feels like hanging out"
   ];
+
   const process = [
-    { step: "Discovery", description: "We learn your story, goals, and target audience" },
-    { step: "Creative Planning", description: "Develop concepts, scripts, and shot lists" },
-    { step: "Production", description: "Professional filming with cinema-grade equipment" },
-    { step: "Post-Production", description: "Editing, color grading, sound design, and effects" },
-    { step: "Delivery", description: "Optimized files for all platforms and purposes" }
+    { step: "The Fun Part", description: "Share your ideas in a relaxed, supported environment" },
+    { step: "We Handle This", description: "Professional editing and production magic happens" },
+    { step: "Growth Time", description: "Your ideas reach eager audiences everywhere" },
+    { step: "Money Flows", description: "Turn listeners into clients while staying authentic" },
+    { step: "Rinse & Repeat", description: "Keep building wealth through conversations you enjoy" }
   ];
+
   return (
     <div className="min-h-screen bg-[#FFF8F0]">
       <Navbar />
@@ -27,21 +30,21 @@ export default function VideoProductionPage() {
         <div className="max-w-5xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-[#D4A574]/10 border border-[#D4A574]/30 rounded-full px-6 py-2 mb-8">
             <Video className="w-5 h-5 text-[#D4A574]" />
-            <span className="text-[#F4E4C1] text-sm font-medium">Professional Video Production</span>
+            <span className="text-[#F4E4C1] text-sm font-medium">The Chillest Way to Grow Your Business</span>
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#F4E4C1] mb-6 leading-tight">
-            Tell Your Story Through<br />
-            <span className="text-[#D4A574]">Compelling Video</span>
+            Making Money Should Be<br />
+            <span className="text-[#D4A574]">This Much Fun</span>
           </h1>
           <p className="text-xl text-[#F4E4C1]/80 mb-8 max-w-3xl mx-auto">
-            From concept to final cut, we create video content that captures attention, tells your story authentically, and drives real business results for Atlanta's main street businesses.
+            From political shows to wellness series, we've proven that the best content (and biggest profits) come when you're actually enjoying yourself. Let's turn your ideas into a show that makes you money while keeping your zen.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/#contact"
               className="inline-flex items-center gap-2 bg-[#D4A574] text-[#2C1810] px-8 py-4 rounded-lg hover:bg-[#E8C792] transition-colors cursor-pointer font-bold text-lg"
             >
-              Start Your Project
+              Start Having Fun
               <ArrowRight className="w-5 h-5" />
             </a>
             <Link
@@ -53,11 +56,12 @@ export default function VideoProductionPage() {
           </div>
         </div>
       </section>
+
       {/* Benefits Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2C1810] mb-12 text-center">
-            What Video Production Can Do for Your Business
+            Yes, Business Growth Can Actually Be Enjoyable
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {benefits.map((benefit, index) => (
@@ -69,11 +73,12 @@ export default function VideoProductionPage() {
           </div>
         </div>
       </section>
+
       {/* Process Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#2C1810] to-[#4A2818]">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#F4E4C1] mb-12 text-center">
-            Our Production Process
+            How We Turn Good Times Into Good Money
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
             {process.map((item, index) => (
@@ -88,18 +93,19 @@ export default function VideoProductionPage() {
           </div>
         </div>
       </section>
+
       {/* CTA Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center bg-gradient-to-br from-[#8B6F47] to-[#6F5739] rounded-2xl p-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-            Ready to Create Something Amazing?
+            Ready To Make Money While Having Fun?
           </h2>
           <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-            Let's discuss your video production needs and create content that elevates your brand and connects with your audience.
+            Join other successful hosts who've discovered the secret: the most profitable content comes from conversations you actually enjoy having. Let's make your business growth feel less like work.
           </p>
           <Link to="/#contact">
             <Button className="bg-[#D4A574] hover:bg-[#E8C792] text-[#2C1810] px-8 py-6 text-lg font-bold cursor-pointer">
-              Schedule a Consultation
+              Let's Get Started
             </Button>
           </Link>
         </div>
