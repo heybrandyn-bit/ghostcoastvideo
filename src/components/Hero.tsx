@@ -21,9 +21,11 @@ export default function Hero() {
           <span className="text-[#D4A574]">Your Own Success</span>
         </h1>
 
-        {/* Description */}
+        {/* Description - Broken down for better flow */}
         <p className="text-xl sm:text-2xl text-[#F4E4C1]/80 mb-12 max-w-3xl mx-auto leading-relaxed">
-          We help you broadcast your best self, not just to Atlanta, but to the world. We're driven by a passion to see main street businesses thrive, and we've honed our skills in direct marketing to deliver tangible results. But we found that delivering results wasn't enough; we needed to help you *own* that success, to scale it, and to make it sustainable.
+          We help you broadcast your best self, not just to Atlanta, but to the world. We're driven by a passion to see main street businesses thrive, and we've honed our skills in direct marketing to deliver tangible results.
+          <br /><br />
+          But we found that delivering results wasn't enough; we needed to help you *own* that success, to scale it, and to make it sustainable. That's why we help main street businesses experience transformative growth through strategic content solutions—video production, marketing automation, ghostwriting, podcasts, and live events that connect you with the clients you're meant to serve.
           <br /><br />
           So, we create content that silences the static of social media distraction and compels people to act. We handle the complex tech, transforming your entire media presence into a powerful, always-on stage – think of it as your personal TED Talk, broadcasting your expertise 24/7.
           <br /><br />
