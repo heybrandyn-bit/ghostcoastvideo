@@ -1,5 +1,6 @@
 import { Video, Zap, PenTool, BookOpen, Mic, Camera } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
 const services = [
   {
     icon: Video,
@@ -44,6 +45,10 @@ const services = [
     link: '/services/live-events'
   }
 ];
+
+// YouTube video ID from the provided URL
+const testimonialVideoId = 'T_JKdD1aacg';
+
 export default function Services() {
   return (
     <section id="services" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#FFF8F0]">
@@ -71,6 +76,24 @@ export default function Services() {
             </Link>
           ))}
         </div>
+
+        {/* Testimonial Section */}
+        <div className="mt-24 mb-16 text-center max-w-4xl mx-auto">
+          <h3 className="text-3xl font-bold text-[#2C1810] mb-6">
+            Listen to international best-seller Peter Sage talk about some of the work we did this year.
+          </h3>
+          <div className="relative w-full pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-xl">
+            <iframe
+              className="absolute top-0 left-0 w-full h-full"
+              src={`https://www.youtube.com/embed/${testimonialVideoId}`}
+              title="Peter Sage Testimonial"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+
         <div className="mt-16 text-center">
           <a
             href="#contact"
