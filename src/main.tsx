@@ -64,9 +64,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/services/marketing-automation" element={<MarketingAutomationPage />} />
         <Route path="/services/podcast" element={<PodcastPage />} />
         <Route path="/services/live-events" element={<LiveEventPage />} />
-        <Route path="/services/podcast" element={<DigitalPublishingPage />} />
+        <Route path="/services/podcast" element={<PodcastPage />} />
         <Route path="/services/client-acquisition" element={<ClientAcquisitionPage />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/services/digital-publishing" element={<DigitalPublishingPage/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
