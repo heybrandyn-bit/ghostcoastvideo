@@ -9,6 +9,14 @@ export default function Footer() {
             <p className="text-[#F4E4C1]/70 mb-4 max-w-md">
               Empowering Atlanta's main street businesses to become creators of their own success through strategic content and communication solutions.
             </p>
+            <a 
+              href="https://alphareply.coderocket.app" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-[#D4A574] hover:text-[#E8C792] transition-colors text-sm cursor-pointer inline-block"
+            >
+              alphareply.coderocket.app →
+            </a>
           </div>
           <div>
             <h4 className="text-lg font-semibold text-[#F4E4C1] mb-4">Services</h4>
@@ -19,6 +27,7 @@ export default function Footer() {
               <li><Link to="/services/publishing" className="text-[#F4E4C1]/70 hover:text-[#D4A574] transition-colors cursor-pointer">Publishing</Link></li>
               <li><Link to="/services/podcast" className="text-[#F4E4C1]/70 hover:text-[#D4A574] transition-colors cursor-pointer">Podcasts</Link></li>
               <li><Link to="/services/live-events" className="text-[#F4E4C1]/70 hover:text-[#D4A574] transition-colors cursor-pointer">Live Events</Link></li>
+              <li><Link to="/services/client-acquisition" className="text-[#F4E4C1]/70 hover:text-[#D4A574] transition-colors cursor-pointer">Client Acquisition</Link></li>
             </ul>
           </div>
           <div>
