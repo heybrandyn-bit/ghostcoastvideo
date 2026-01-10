@@ -1,5 +1,4 @@
 import { ArrowRight, Sparkles } from 'lucide-react';
-
 // Updated logo URLs provided by the user
 const logoUrls = [
   'http://ghostcoast.video/wp-content/uploads/2026/01/kcf.png',
@@ -8,37 +7,27 @@ const logoUrls = [
   'http://ghostcoast.video/wp-content/uploads/2026/01/snmlogo.png',
   'http://ghostcoast.video/wp-content/uploads/2026/01/yes.png',
 ];
-
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#2C1810] via-[#4A2818] to-[#2C1810]">
       {/* Background pattern */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNEOEMyOTUiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djItaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAgNHYyaDJ2LTJoLTJ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-30"></div>
-
       {/* Content container */}
       <div className="relative max-w-5xl mx-auto text-center">
-
         {/* Tagline */}
         <div className="inline-flex items-center gap-2 bg-[#D4A574]/10 border border-[#D4A574]/30 rounded-full px-6 py-2 mb-8">
           <Sparkles className="w-4 h-4 text-[#D4A574]" />
           <span className="text-[#F4E4C1] text-sm font-medium">Your Message, Amplified. Your Clients, Captured.</span>
         </div>
-
         {/* Headline */}
-
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-[#F4E4C1] mb-6 leading-tight">
           You Don't Have Forever<br />
           <span className="text-[#D4A574]">To Share Your Best Self</span>
-
         </h1>
 {/* Description - Broken down for better flow */}
-
-
         <p className="text-xl sm:text-2xl text-[#F4E4C1]/80 mb-12 max-w-3xl mx-auto leading-relaxed">
           Experience transformative growth through content solutions — video production, marketing automation, ghostwriting, podcasts, and live events that connect you with the clients you're meant to serve.
           </p>
-
-
         {/* Call to Actions */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
@@ -55,7 +44,6 @@ export default function Hero() {
             Explore Our Services
           </a>
         </div>
-
         {/* Trusted By Section */}
         <div className="mt-24 mb-16 max-w-4xl mx-auto"> {/* Increased margin for better separation */}
           <h2 className="text-3xl font-bold text-[#F4E4C1] mb-8 text-center">

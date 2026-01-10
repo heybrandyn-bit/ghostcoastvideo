@@ -1,6 +1,5 @@
-import { Video, Zap, PenTool, BookOpen, Mic, Camera } from 'lucide-react';
+import { Video, Zap, PenTool, BookOpen, Mic, Camera, Target } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 const services = [
   {
     icon: Video,
@@ -43,12 +42,17 @@ const services = [
     description: 'Relax with the people who care the most. We will make sure people get the message - and rememebr it.',
     color: 'from-[#C89968] to-[#D4A574]',
     link: '/services/live-events'
+  },
+  {
+    icon: Target,
+    title: 'Client Acquisition',
+    description: 'Predictable pipeline of 5-8 qualified appointments every month. No more feast-or-famine cycles.',
+    color: 'from-[#D4A574] to-[#8B6F47]',
+    link: '/services/client-acquisition'
   }
 ];
-
 // YouTube video ID from the provided URL
 const testimonialVideoId = 'T_JKdD1aacg';
-
 export default function Services() {
   return (
     <section id="services" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#FFF8F0]">
@@ -76,7 +80,6 @@ export default function Services() {
             </Link>
           ))}
         </div>
-
         {/* Testimonial Section */}
         <div className="mt-24 mb-16 text-center max-w-4xl mx-auto">
           <h3 className="text-3xl font-bold text-[#2C1810] mb-6">
@@ -93,7 +96,6 @@ export default function Services() {
             ></iframe>
           </div>
         </div>
-
         <div className="mt-16 text-center">
           <a
             href="#contact"

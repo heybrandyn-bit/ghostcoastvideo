@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Button } from '../components/ui/button';
-
 export default function VideoProductionPage() {
   const benefits = [
     "Turn relaxed conversations into revenue streams",
@@ -13,7 +12,6 @@ export default function VideoProductionPage() {
     "Grow your audience while keeping your sanity",
     "Make money doing what feels like hanging out"
   ];
-
   const process = [
     { step: "The Fun Part", description: "Share your ideas in a relaxed, supported environment" },
     { step: "We Handle This", description: "Professional editing and production magic happens" },
@@ -21,7 +19,6 @@ export default function VideoProductionPage() {
     { step: "Money Flows", description: "Turn listeners into clients while staying authentic" },
     { step: "Rinse & Repeat", description: "Keep building wealth through conversations you enjoy" }
   ];
-
   return (
     <div className="min-h-screen bg-[#FFF8F0]">
       <Navbar />
@@ -56,7 +53,6 @@ export default function VideoProductionPage() {
           </div>
         </div>
       </section>
-
       {/* Benefits Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -73,7 +69,6 @@ export default function VideoProductionPage() {
           </div>
         </div>
       </section>
-
       {/* Process Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#2C1810] to-[#4A2818]">
         <div className="max-w-7xl mx-auto">
@@ -93,7 +88,6 @@ export default function VideoProductionPage() {
           </div>
         </div>
       </section>
-
       {/* CTA Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center bg-gradient-to-br from-[#8B6F47] to-[#6F5739] rounded-2xl p-12">

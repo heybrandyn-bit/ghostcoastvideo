@@ -9,6 +9,7 @@ import GhostwritingPage from "./pages/GhostwritingPage.tsx";
 import PublishingPage from "./pages/PublishingPage.tsx";
 import PodcastPage from "./pages/PodcastPage.tsx";
 import LiveEventPage from "./pages/LiveEventPage.tsx";
+import ClientAcquisitionPage from "./pages/ClientAcquisitionPage.tsx";
 import "./globals.css";
 // CODEROCKET
 const setupRouteChangeBridge = () => {
@@ -66,6 +67,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/services/publishing" element={<PublishingPage />} />
         <Route path="/services/podcast" element={<PodcastPage />} />
         <Route path="/services/live-events" element={<LiveEventPage />} />
+        <Route path="/services/client-acquisition" element={<ClientAcquisitionPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
