@@ -1,0 +1,23 @@
+PROJECT BRIEF: Ghost Coast Video
+
+Brand Identity: Ghost Coast
+Design Standard: E-180 High-Grade VHS Aesthetic
+Core Objective: To turn long-form archived data into high-velocity "Information Packets" (Video + Web) using a unified code-driven factory.
+1. Visual Identity System (The E-180 Design DNA)
+
+The aesthetic is based on professional analog master tapes from the early 90s. It balances high-impact commercial energy with technical, industrial precision.
+A. The Master Palette
+Element	Hex Code	Brand Role
+VHS Yellow	#FFC800	Highlights, Scarcity Bars, Accent Text
+VHS Orange	#FF6D00	Secondary Progress Stripes, Warning Labels
+VHS Red	#E61D5F	Primary Headlines, "REC" Indicators
+VHS Purple	#5E2D5E	Technical Badges, Footers, "Pro" Accents
+Cream White	#F3F3E9	"Label" Backgrounds, Reading Sections
+Pro Black	#1A1A1A	Main Background, Frame Texture
+B. Typography Hierarchy
+
+    The Command (Sans): Inter (Weight 900). All-caps, tight tracking (-0.05em). Used for aggressive, high-conversion headlines.
+
+    The Heritage (Serif): Playfair Display. Italicized. Used for "Simply," "The," or sub-headlines to add a "boutique" or prestigious feel.
+
+    The Technical (Mono): JetBrains Mono or VCR OSD Mono. Used for labels, timestamps, and "Tape Spine" data points.

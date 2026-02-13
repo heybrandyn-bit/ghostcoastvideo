@@ -1,121 +1,202 @@
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
+import { useState } from 'react';
+
 export default function Contact() {
+  const [name, setName] = useState('');
+  const [business, setBusiness] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+
+    try {
+      const res = await fetch('/blog/?rest_route=/gcv/v1/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, name, business, phone, message }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || 'Failed to send message.');
+      }
+      setSubmitted(true);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#FFF8F0]">
+    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 bg-background border-b border-border">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-[#2C1810] mb-4">
-            Start Your <span className="text-[#8B6F47]">Transformation</span>
-          </h2>
-          <p className="text-xl text-[#5A4A3A] max-w-2xl mx-auto">
-            Let's have a conversation about your business, your goals, and how we can help you achieve the growth and freedom you're looking for.
-          </p>
-        </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+          {/* Left Column: Form Terminal */}
           <div>
-            <form className="space-y-6 bg-white p-8 rounded-xl shadow-lg border border-[#E8DCC8]">
-              <div>
-                <label className="block text-sm font-semibold text-[#2C1810] mb-2">Your Name</label>
-                <Input 
-                  type="text" 
-                  placeholder="John Smith" 
-                  className="w-full bg-[#FFF8F0] border-[#D4A574]/30 focus:border-[#D4A574]"
-                />
+            <div className="mb-8">
+              <h2 className="text-4xl sm:text-5xl font-black text-foreground mb-4 uppercase tracking-tighter">
+                Start Your <span className="text-primary">Transformation</span>
+              </h2>
+              <p className="text-xl font-mono text-muted-foreground uppercase leading-tight">
+                // Let's Work Together
+              </p>
+            </div>
+
+            {submitted ? (
+              <div className="bg-card/50 p-8 border border-accent mt-8 text-center space-y-3">
+                <Send className="w-8 h-8 text-accent mx-auto" />
+                <p className="font-mono text-sm text-accent uppercase tracking-widest">Message Transmitted</p>
+                <p className="font-mono text-xs text-muted-foreground">We'll be in touch within 24 hours.</p>
               </div>
-              <div>
-                <label className="block text-sm font-semibold text-[#2C1810] mb-2">Business Name</label>
-                <Input 
-                  type="text" 
-                  placeholder="Smith & Co." 
-                  className="w-full bg-[#FFF8F0] border-[#D4A574]/30 focus:border-[#D4A574]"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-[#2C1810] mb-2">Email</label>
-                <Input 
-                  type="email" 
-                  placeholder="john@smithandco.com" 
-                  className="w-full bg-[#FFF8F0] border-[#D4A574]/30 focus:border-[#D4A574]"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-[#2C1810] mb-2">Phone</label>
-                <Input 
-                  type="tel" 
-                  placeholder="(404) 555-0123" 
-                  className="w-full bg-[#FFF8F0] border-[#D4A574]/30 focus:border-[#D4A574]"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-[#2C1810] mb-2">Tell Us About Your Vision</label>
-                <Textarea 
-                  placeholder="What are your goals? What challenges are you facing? How can we help you grow?" 
-                  rows={5}
-                  className="w-full bg-[#FFF8F0] border-[#D4A574]/30 focus:border-[#D4A574]"
-                />
-              </div>
-              <Button 
-                type="submit" 
-                className="w-full bg-[#8B6F47] hover:bg-[#6F5739] text-white py-6 text-lg font-bold cursor-pointer"
-              >
-                Send Your Message
-              </Button>
-            </form>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6 bg-card/50 p-8 border border-border mt-8 relative">
+                <div className="absolute -top-3 left-4 bg-background px-2 text-xs font-mono text-accent">CONTACT FORM</div>
+
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-xs font-mono text-muted-foreground mb-1 uppercase tracking-widest">Identify Yourself</label>
+                    <Input
+                      type="text"
+                      placeholder="YOUR NAME"
+                      required
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      className="w-full bg-background border-border text-foreground font-mono focus:border-accent focus:ring-1 focus:ring-accent rounded-none h-12 uppercase"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-mono text-muted-foreground mb-1 uppercase tracking-widest">Organization Unit</label>
+                    <Input
+                      type="text"
+                      placeholder="BUSINESS NAME"
+                      value={business}
+                      onChange={(e) => setBusiness(e.target.value)}
+                      className="w-full bg-background border-border text-foreground font-mono focus:border-accent focus:ring-1 focus:ring-accent rounded-none h-12 uppercase"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-mono text-muted-foreground mb-1 uppercase tracking-widest">Email Address</label>
+                    <Input
+                      type="email"
+                      placeholder="EMAIL ADDRESS"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full bg-background border-border text-foreground font-mono focus:border-accent focus:ring-1 focus:ring-accent rounded-none h-12 uppercase"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-mono text-muted-foreground mb-1 uppercase tracking-widest">Phone Number</label>
+                    <Input
+                      type="tel"
+                      placeholder="PHONE NUMBER"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      className="w-full bg-background border-border text-foreground font-mono focus:border-accent focus:ring-1 focus:ring-accent rounded-none h-12 uppercase"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-mono text-muted-foreground mb-1 uppercase tracking-widest">How Can We Help?</label>
+                    <Textarea
+                      placeholder="TELL US ABOUT YOUR GOALS..."
+                      rows={5}
+                      required
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      className="w-full bg-background border-border text-foreground font-mono focus:border-accent focus:ring-1 focus:ring-accent rounded-none uppercase"
+                    />
+                  </div>
+                </div>
+
+                {error && (
+                  <div className="font-mono text-xs text-red-400 bg-red-400/10 border border-red-400/30 px-3 py-2">
+                    {error}
+                  </div>
+                )}
+
+                <Button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-primary hover:bg-primary/90 text-white h-14 text-lg font-bold font-sans uppercase tracking-widest border border-primary relative overflow-hidden group rounded-none disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    {loading ? 'Sending...' : 'Send Message'} <Send className="w-4 h-4" />
+                  </span>
+                </Button>
+              </form>
+            )}
           </div>
-          <div className="space-y-8">
+
+          {/* Right Column: Contact Info */}
+          <div className="space-y-8 lg:pt-32">
             <div>
-              <h3 className="text-2xl font-bold text-[#2C1810] mb-6">Get in Touch</h3>
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-[#D4A574] flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-white" />
+              <div className="space-y-6">
+                <div className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 border border-secondary flex items-center justify-center flex-shrink-0 bg-secondary/10 group-hover:bg-secondary group-hover:text-black transition-colors">
+                    <MapPin className="w-6 h-6 text-secondary group-hover:text-black" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[#2C1810] mb-1">Location</h4>
-                    <p className="text-[#5A4A3A]">Serving Atlanta Metro Area<br />Main Street Businesses</p>
+                    <h4 className="font-bold text-foreground mb-1 uppercase tracking-wider">Location</h4>
+                    <p className="text-muted-foreground font-mono text-sm leading-relaxed">
+                      Serving Atlanta GA, Alburquerque NM,<br />
+                      and clients nationwide.
+                    </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-[#8B6F47] flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-white" />
+
+                <div className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 border border-accent flex items-center justify-center flex-shrink-0 bg-accent/10 group-hover:bg-accent group-hover:text-black transition-colors">
+                    <Phone className="w-6 h-6 text-accent group-hover:text-black" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[#2C1810] mb-1">Phone</h4>
-                    <p className="text-[#5A4A3A]">(404) 555-ALPHA<br />Mon-Fri, 9am-6pm EST</p>
+                    <h4 className="font-bold text-foreground mb-1 uppercase tracking-wider">Phone</h4>
+                    <p className="text-muted-foreground font-mono text-xs leading-relaxed uppercase">
+                      Alburquerque, NM: (505) 216-6776<br />
+                      Atlanta, Georgia: (404) 369-7247
+                    </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-[#A68B5B] flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-white" />
+
+                <div className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 border border-primary flex items-center justify-center flex-shrink-0 bg-primary/10 group-hover:bg-primary group-hover:text-white transition-colors">
+                    <Mail className="w-6 h-6 text-primary group-hover:text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[#2C1810] mb-1">Email</h4>
-                    <p className="text-[#5A4A3A]">hello@alphareply.com<br />We respond within 24 hours</p>
+                    <h4 className="font-bold text-foreground mb-1 uppercase tracking-wider">Email</h4>
+                    <p className="text-muted-foreground font-mono text-sm">hello@ghostcoast.video<br />Response Time: &lt; 24 Hours</p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-[#8B6F47] to-[#6F5739] rounded-xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-4">Why Work With Us?</h3>
-              <ul className="space-y-3">
+
+            <div className="border border-muted p-8 bg-muted/5 relative">
+              <div className="absolute top-0 right-0 p-2 opacity-20">
+                <Send size={48} />
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-4 uppercase tracking-wide">Why Work With Us?</h3>
+              <ul className="space-y-3 font-mono text-sm text-muted-foreground">
                 <li className="flex items-start gap-3">
-                  <span className="text-[#D4A574] text-xl">✓</span>
-                  <span>Atlanta-based team that understands your community</span>
+                  <span className="text-accent">{">"}</span>
+                  <span>US-based operations team</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-[#D4A574] text-xl">✓</span>
-                  <span>Complete service offering—no need for multiple vendors</span>
+                  <span className="text-accent">{">"}</span>
+                  <span>Proven record for service based businesses</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-[#D4A574] text-xl">✓</span>
-                  <span>Proven track record with main street businesses</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[#D4A574] text-xl">✓</span>
-                  <span>Focus on measurable growth and ROI</span>
+                  <span className="text-accent">{">"}</span>
+                  <span>Doesn't need "focus ROI"</span>
                 </li>
               </ul>
             </div>

@@ -7,7 +7,7 @@ import Navbar from './components/Navbar';
 import './globals.css';
 function App() {
   return (
-    <div className="min-h-screen bg-[#FFF8F0]">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <Hero />
       <Services />
