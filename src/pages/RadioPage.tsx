@@ -5,6 +5,8 @@ import { Button } from '../components/ui/button';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAudio, Episode } from '../context/AudioContext';
+import HostSignupDialog from '../components/radio/HostSignupDialog';
+import GuestApplyDialog from '../components/radio/GuestApplyDialog';
 
 export default function RadioPage() {
   const { playEpisode, currentEpisode, isPlaying } = useAudio();
@@ -82,6 +84,8 @@ export default function RadioPage() {
     }
   ];
 
+  const [hostOpen, setHostOpen] = useState(false);
+  const [guestOpen, setGuestOpen] = useState(false);
   const [visibleEpisodes, setVisibleEpisodes] = useState<Record<string, number>>({});
 
   const loadMore = (showTitle: string) => {
@@ -122,10 +126,16 @@ export default function RadioPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg font-bold uppercase tracking-widest rounded-none border border-primary shadow-[4px_4px_0px_0px_rgba(255,255,255,0.1)] hover:translate-y-1 hover:shadow-none transition-all">
+            <Button
+              onClick={() => setHostOpen(true)}
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg font-bold uppercase tracking-widest rounded-none border border-primary shadow-[4px_4px_0px_0px_rgba(255,255,255,0.1)] hover:translate-y-1 hover:shadow-none transition-all"
+            >
               Sign Up As Host
             </Button>
-            <Button className="bg-transparent border-2 border-foreground text-foreground hover:bg-foreground hover:text-background px-8 py-6 text-lg font-bold uppercase tracking-widest rounded-none font-mono">
+            <Button
+              onClick={() => setGuestOpen(true)}
+              className="bg-transparent border-2 border-foreground text-foreground hover:bg-foreground hover:text-background px-8 py-6 text-lg font-bold uppercase tracking-widest rounded-none font-mono"
+            >
               Be A Guest
             </Button>
             <Link to="/radio/learn-more" className="w-full sm:w-auto">
@@ -277,6 +287,9 @@ export default function RadioPage() {
       </section>
 
       <Footer />
+
+      <HostSignupDialog open={hostOpen} onOpenChange={setHostOpen} />
+      <GuestApplyDialog open={guestOpen} onOpenChange={setGuestOpen} />
     </div>
   );
 }

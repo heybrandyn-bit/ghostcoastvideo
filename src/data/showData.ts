@@ -31,6 +31,7 @@ export interface ShowConfig {
         youtube?: string;
         storeUrl?: string;
         guestFormUrl?: string;
+        bookingUrl?: string;
     };
     theme?: {
         primary?: string; // HSL triplet: "340 78% 51%"
