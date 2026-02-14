@@ -46,10 +46,10 @@ export const shows: ShowConfig[] = [
     {
         title: "The Most Important Election of Our Lives",
         slug: "election",
-        tagline: "Policy. Culture. Personal Economy.",
+        tagline: "Vote. Vote. VOOOOOTE.",
         description: "let's fucking vooooote! get in the booth for a fun hour of pop culture and political history!",
         feedUrl: "https://feeds.castos.com/5owq0",
-        hosts: ["Brandyn", "Kennedy"],
+        hosts: ["Brandyn", "Kennedy", "Andrew"],
         sections: {
             episodes: true,
             pressKit: true,
@@ -62,17 +62,17 @@ export const shows: ShowConfig[] = [
             youtubeChannel: false,
         },
         pressKit: {
-            premise: "A no-nonsense political analysis show that cuts through the noise and connects policy decisions to the personal economies of independent creatives. We don't do talking points — we do real talk about how governance impacts your ability to build, earn, and create freely.",
+            premise: "We talk to people who have any fandom or culture interest. Then we pair their fandom interest with some obscure or interesting piece of political history. There are games, comparisons, trivia and it's almost always funny.",
             format: "45–60 min panel discussion / interview format",
             recordingMethod: "Discord — The Cholla A/V Club",
             discordInvite: "https://discord.gg/cholla-av-club",
             guestExpectations: [
-                "Have a clear perspective on a political or cultural topic",
+                "Have a niche fandom you're excited to talk about.",
                 "Be comfortable speaking candidly for 45–60 minutes",
                 "Join our Discord server (The Cholla A/V Club) at least 24 hours before recording",
                 "Use a decent microphone — no laptop mics or AirPods",
-                "Be on time. We record live and don't wait",
-                "Keep it real. Scripted talking points get cut",
+                "Be on time. We record live and don't like to wait",
+                "You're allowed to swear!",
             ],
         },
         links: {
@@ -87,12 +87,12 @@ export const shows: ShowConfig[] = [
         },
     },
     {
-        title: "Monday Night Fake Fights",
-        slug: "monday-fights",
-        tagline: "Pro Wrestling. Brand Strategy. Storytelling.",
+        title: "Wednesday Night Fake Fights",
+        slug: "wednesday-fights",
+        tagline: "Pro Wrestling.",
         description: "it's wednesday - you know what that means. listen to a chaotic and queer focused look at pro wrestling",
         feedUrl: "https://feeds.castos.com/63xd0",
-        hosts: ["Brandyn"],
+        hosts: ["Ella"],
         sections: {
             episodes: true,
             pressKit: true,
@@ -114,8 +114,8 @@ export const shows: ShowConfig[] = [
                 "Have a take. We love hot takes, controversial opinions, and hill-you'll-die-on moments",
                 "Join our Discord server (The Cholla A/V Club) for recording",
                 "Use a quality microphone — headset or dedicated mic preferred",
-                "Energy is everything. Bring the promo energy",
-                "Recording happens Monday evenings — be available and on time",
+                "Energy is everything. Bring the energy!",
+                "Be available and on time",
             ],
         },
         links: {
@@ -149,7 +149,7 @@ export const shows: ShowConfig[] = [
             youtubeChannel: false,
         },
         pressKit: {
-            premise: "A sonic journey through the African diaspora — connecting music, culture, history, and the creative entrepreneurial spirit. We spotlight artists, thinkers, and builders who are shaping culture from the ground up.",
+            premise: "A sonic journey through the Carribean diaspora — connecting music, culture, history, and the creative entrepreneurial spirit. We spotlight artists, thinkers, and builders who are shaping culture from the ground up.",
             format: "45–75 min interview / conversation format",
             recordingMethod: "Discord — The Cholla A/V Club",
             discordInvite: "https://discord.gg/cholla-av-club",
@@ -171,6 +171,49 @@ export const shows: ShowConfig[] = [
             accent: "35 90% 55%",   // Alkebulan Earth
             muted: "140 30% 12%",  // Dark Green
             border: "140 30% 20%", // Muted Green
+        },
+    },
+    {
+        title: "Atlanta History Project",
+        slug: "atlanta-history",
+        tagline: "Oral History. Grassroots Preservation.",
+        description: "Join Brandyn Buchanan as he partners with the WRFG / L5P Oral History Project to capture the heartbeat of iconic Atlanta communities, starting with the funky, independent soul of Little Five Points.",
+        feedUrl: "https://feeds.castos.com/px0p2",
+        hosts: ["Brandyn Buchanan"],
+        sections: {
+            episodes: true,
+            pressKit: true,
+            guestBooking: true,
+            voicenote: true,
+            subscribe: true,
+            heroSubscribe: false,
+            reviews: true,
+            merch: false,
+            youtubeChannel: false,
+        },
+        pressKit: {
+            premise: "Part of a national movement to celebrate grassroots historic preservation, the project ensures that the spirit of Atlanta's most vital communities — their struggles, triumphs, and sheer vitality — is recorded and remembered through deep-dive oral histories.",
+            format: "60–90 min Oral History / Conversation",
+            recordingMethod: "Discord — The Cholla A/V Club",
+            discordInvite: "https://discord.gg/cholla-av-club",
+            guestExpectations: [
+                "Have a personal connection or story related to Little Five Points or Atlanta's cultural history",
+                "Be prepared to dive deep into sensory details, legendary sights, and sounds of the community",
+                "Join our Discord server (The Cholla A/V Club) for recording",
+                "Use a high-quality microphone in a quiet environment",
+                "Be authentic — we're capturing the heartbeat of the community, not a polished PR statement",
+                "You're allowed to swear!",
+            ],
+        },
+        links: {
+            apple: "#",
+            spotify: "#",
+        },
+        theme: {
+            primary: "25 85% 50%", // ATL Peach/Clay
+            accent: "45 100% 50%",  // ATL Gold
+            muted: "25 30% 12%",
+            border: "25 40% 25%",
         },
     },
 ];

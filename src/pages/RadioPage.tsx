@@ -7,17 +7,17 @@ import { Link } from 'react-router-dom';
 import { useAudio, Episode } from '../context/AudioContext';
 import HostSignupDialog from '../components/radio/HostSignupDialog';
 import GuestApplyDialog from '../components/radio/GuestApplyDialog';
+import { shows } from '../data/showData';
 
 export default function RadioPage() {
   const { playEpisode, currentEpisode, isPlaying } = useAudio();
   const [episodesMap, setEpisodesMap] = useState<Record<string, Episode[]>>({});
   const [loading, setLoading] = useState(true);
 
-  const showFeeds = {
-    "The Most Important Election of Our Lives": "https://feeds.castos.com/5owq0",
-    "Monday Night Fake Fights": "https://feeds.castos.com/63xd0",
-    "Alkebulan Radio": "https://feeds.castos.com/k9rw2"
-  };
+  // Build feed map from showData so it stays in sync
+  const showFeeds = Object.fromEntries(
+    shows.map(s => [s.title, s.feedUrl])
+  );
 
   useEffect(() => {
     const fetchFeed = async (title: string, url: string) => {
@@ -65,24 +65,6 @@ export default function RadioPage() {
 
     fetchAllRSS();
   }, []);
-
-  const shows = [
-    {
-      title: "The Most Important Election of Our Lives",
-      slug: "election",
-      description: "let's fucking vooooote! get in the booth for a fun hour of pop culture and political history!"
-    },
-    {
-      title: "Monday Night Fake Fights",
-      slug: "monday-fights",
-      description: "it's wednesday - you know what that means. listen to a chaotic and queer focused look at pro wrestling"
-    },
-    {
-      title: "Alkebulan Radio",
-      slug: "alkebulan",
-      description: "a motivational and inspirational show, looking at the carribean disapora through a holistic and exciting lens"
-    }
-  ];
 
   const [hostOpen, setHostOpen] = useState(false);
   const [guestOpen, setGuestOpen] = useState(false);

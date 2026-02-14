@@ -13,6 +13,7 @@ import DigitalPublishingPage from "./pages/DigitalPublishingPage.tsx";
 import GhostwritingPage from "./pages/GhostwritingPage.tsx";
 import RadioPage from "./pages/RadioPage.tsx";
 import ShowPage from "./pages/ShowPage.tsx";
+import PressKitPage from "./pages/PressKitPage.tsx";
 import MeetYourDreamsPage from "./pages/MeetYourDreamsPage.tsx";
 import { AudioProvider } from "./context/AudioContext.tsx";
 import GlobalAudioPlayer from "./components/GlobalPlayer.tsx";
@@ -83,6 +84,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <Route path="/services/ghostwriting" element={<GhostwritingPage />} />
           <Route path="/radio" element={<RadioPage />} />
           <Route path="/radio/learn-more" element={<MeetYourDreamsPage />} />
+          <Route path="/radio/:slug/press-kit" element={<PressKitPage />} />
           <Route path="/radio/:slug" element={<ShowPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
