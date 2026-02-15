@@ -41,12 +41,9 @@
     --destructive-foreground: 60 20% 93%;
 
     --ring: 47 100% 50%;
-    --radius: 0px;
-    /* Sharp corners for industrial feel */
   }
 
   .dark {
-    /* Same adjustments for dark mode since this is a dark-first theme */
     --background: 0 0% 10%;
     --foreground: 60 20% 93%;
     --muted: 300 35% 27%;
@@ -66,6 +63,47 @@
     --destructive: 340 78% 51%;
     --destructive-foreground: 60 20% 93%;
     --ring: 47 100% 50%;
+  }
+
+  .cholla-theme {
+    /* Deep Charcoal Green - base */
+    --background: 160 20% 7%;
+    /* Elegant Off-white - readability */
+    --foreground: 60 10% 90%;
+    /* Muted Sage / Lichen - primary tech color */
+    --primary: 145 25% 60%;
+    --primary-foreground: 160 20% 7%;
+    /* Deep Forest - cards and surfaces */
+    --card: 160 15% 12%;
+    --card-foreground: 60 10% 90%;
+    /* Dusty Gold - accents and interest */
+    --secondary: 42 30% 60%;
+    --secondary-foreground: 160 20% 7%;
+    /* Soft Clay - warm contrast */
+    --accent: 12 25% 60%;
+    --accent-foreground: 160 20% 7%;
+    /* Mid-tone Green - borders/muted text */
+    --muted: 160 15% 18%;
+    --muted-foreground: 160 10% 65%;
+    --border: 160 15% 20%;
+    --popover: 160 15% 12%;
+    --popover-foreground: 60 10% 90%;
+    --ring: 145 25% 60%;
+    --bloom: 12 40% 65%;
+  }
+}
+
+@layer utilities {
+  .text-bloom {
+    color: hsl(var(--bloom));
+  }
+
+  .bg-bloom {
+    background-color: hsl(var(--bloom));
+  }
+
+  .border-bloom {
+    border-color: hsl(var(--bloom));
   }
 }
 

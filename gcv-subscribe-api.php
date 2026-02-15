@@ -38,6 +38,13 @@ add_action( 'rest_api_init', function () {
         'callback'            => 'gcv_handle_guest_apply',
         'permission_callback' => '__return_true',
     ] );
+
+    // POST /wp-json/gcv/v1/atlanta-special
+    register_rest_route( 'gcv/v1', '/atlanta-special', [
+        'methods'             => 'POST',
+        'callback'            => 'gcv_handle_atlanta_special',
+        'permission_callback' => '__return_true',
+    ] );
 } );
 
 /* ------------------------------------------------------------------ */
@@ -358,3 +365,63 @@ function gcv_handle_guest_apply( WP_REST_Request $request ) {
 
     return new WP_REST_Response( [ 'success' => true ], 200 );
 }
+
+/* ------------------------------------------------------------------ */
+/*  POST /gcv/v1/atlanta-special                                      */
+/* ------------------------------------------------------------------ */
+function gcv_handle_atlanta_special( WP_REST_Request $request ) {
+    if ( ! gcv_rate_limit() ) {
+        return new WP_REST_Response( [ 'success' => false, 'message' => 'Too many requests. Please wait a moment.' ], 429 );
+    }
+
+    $email        = sanitize_email( $request->get_param( 'email' ) );
+    $name         = sanitize_text_field( $request->get_param( 'name' ) ?? '' );
+    $phone        = sanitize_text_field( $request->get_param( 'phone' ) ?? '' );
+    $neighborhood = sanitize_text_field( $request->get_param( 'neighborhood' ) ?? '' );
+
+    if ( ! is_email( $email ) ) {
+        return new WP_REST_Response( [ 'success' => false, 'message' => 'A valid email is required.' ], 400 );
+    }
+
+    if ( ! function_exists( 'FluentCrmApi' ) ) {
+        return new WP_REST_Response( [ 'success' => false, 'message' => 'Newsletter system unavailable.' ], 500 );
+    }
+
+    $listId = gcv_get_main_list_id();
+    $tagId  = gcv_ensure_tag( 'atlanta-special' );
+
+    $parts     = explode( ' ', trim( $name ), 2 );
+    $firstName = $parts[0] ?? '';
+    $lastName  = $parts[1] ?? '';
+
+    $contactApi = FluentCrmApi( 'contacts' );
+    $contact    = $contactApi->createOrUpdate( [
+        'email'      => $email,
+        'first_name' => $firstName,
+        'last_name'  => $lastName,
+        'phone'      => $phone,
+        'status'     => 'subscribed',
+    ] );
+
+    if ( ! $contact ) {
+        return new WP_REST_Response( [ 'success' => false, 'message' => 'Failed to create contact.' ], 500 );
+    }
+
+    if ( $listId ) {
+        $contact->attachLists( [ $listId ] );
+    }
+    if ( $tagId ) {
+        $contact->attachTags( [ $tagId ] );
+    }
+
+    // Send notification email
+    $to      = 'hello@ghostcoast.video';
+    $subject = '🔥 NEW Atlanta Special Lead 🔥';
+    $body    = "Business/Name: {$name}\nEmail: {$email}\nPhone: {$phone}\nNeighborhood: {$neighborhood}\n\nThis lead is interested in the $197 Atlanta Special offer.";
+    $headers = [ 'Reply-To: ' . $email ];
+
+    wp_mail( $to, $subject, $body, $headers );
+
+    return new WP_REST_Response( [ 'success' => true ], 200 );
+}
+

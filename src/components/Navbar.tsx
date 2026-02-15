@@ -27,12 +27,15 @@ export default function Navbar() {
                 </button>
                 <div className="absolute top-full left-0 mt-0 w-48 bg-background border border-border shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto">
                   <div className="py-2">
-                    <a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-foreground/80 hover:text-primary hover:bg-muted/10 transition-colors uppercase tracking-wider text-xs border-b border-border/50">
+                    <a href="https://discord.gg/rW9rXze8gr" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-foreground/80 hover:text-primary hover:bg-muted/10 transition-colors uppercase tracking-wider text-xs border-b border-border/50">
                       Discord
                     </a>
                     <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="block px-6 py-3 text-foreground/80 hover:text-primary hover:bg-muted/10 transition-colors uppercase tracking-wider text-xs border-b border-border/50">
                       LinkedIn
                     </a>
+                    <Link to="/community" className="block px-6 py-3 text-foreground/80 hover:text-primary hover:bg-muted/10 transition-colors uppercase tracking-wider text-xs border-b border-border/50">
+                      Cholla Club
+                    </Link>
                     <Link to="/radio" className="block px-6 py-3 text-foreground/80 hover:text-primary hover:bg-muted/10 transition-colors uppercase tracking-wider text-xs">
                       Radio
                     </Link>
@@ -68,8 +71,9 @@ export default function Navbar() {
 
             <div className="py-2 border-y border-border/30 my-2">
               <p className="text-xs text-muted-foreground uppercase tracking-widest mb-2 px-2">Community</p>
-              <a href="https://discord.com" className="block text-foreground hover:text-primary py-2 pl-4 cursor-pointer uppercase tracking-wider text-xs">Discord</a>
+              <a href="https://discord.gg/rW9rXze8gr" className="block text-foreground hover:text-primary py-2 pl-4 cursor-pointer uppercase tracking-wider text-xs">Discord</a>
               <a href="https://linkedin.com" className="block text-foreground hover:text-primary py-2 pl-4 cursor-pointer uppercase tracking-wider text-xs">LinkedIn</a>
+              <Link to="/community" className="block text-foreground hover:text-primary py-2 pl-4 cursor-pointer uppercase tracking-wider text-xs">Cholla Club</Link>
               <Link to="/radio" className="block text-foreground hover:text-primary py-2 pl-4 cursor-pointer uppercase tracking-wider text-xs">Radio</Link>
             </div>
 

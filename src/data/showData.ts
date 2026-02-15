@@ -65,7 +65,7 @@ export const shows: ShowConfig[] = [
             premise: "We talk to people who have any fandom or culture interest. Then we pair their fandom interest with some obscure or interesting piece of political history. There are games, comparisons, trivia and it's almost always funny.",
             format: "45–60 min panel discussion / interview format",
             recordingMethod: "Discord — The Cholla A/V Club",
-            discordInvite: "https://discord.gg/cholla-av-club",
+            discordInvite: "https://discord.gg/rW9rXze8gr",
             guestExpectations: [
                 "Have a niche fandom you're excited to talk about.",
                 "Be comfortable speaking candidly for 45–60 minutes",
@@ -108,7 +108,7 @@ export const shows: ShowConfig[] = [
             premise: "The intersection of professional wrestling and personal branding. We treat the squared circle like a masterclass in storytelling, audience-building, and creative entrepreneurship. If you can cut a promo, you can sell anything.",
             format: "60 min deep-dive discussion",
             recordingMethod: "Discord — The Cholla A/V Club",
-            discordInvite: "https://discord.gg/cholla-av-club",
+            discordInvite: "https://discord.gg/rW9rXze8gr",
             guestExpectations: [
                 "Know your wrestling — casual fans are welcome but be ready to go deep",
                 "Have a take. We love hot takes, controversial opinions, and hill-you'll-die-on moments",
@@ -121,7 +121,7 @@ export const shows: ShowConfig[] = [
         links: {
             apple: "#",
             spotify: "#",
-            storeUrl: "#",
+            storeUrl: "https://garaktailor-shop.fourthwall.com",
         },
         theme: {
             primary: "280 65% 50%", // Wrestling Purple
@@ -152,7 +152,7 @@ export const shows: ShowConfig[] = [
             premise: "A sonic journey through the Carribean diaspora — connecting music, culture, history, and the creative entrepreneurial spirit. We spotlight artists, thinkers, and builders who are shaping culture from the ground up.",
             format: "45–75 min interview / conversation format",
             recordingMethod: "Discord — The Cholla A/V Club",
-            discordInvite: "https://discord.gg/cholla-av-club",
+            discordInvite: "https://discord.gg/rW9rXze8gr",
             guestExpectations: [
                 "Have a story to tell about your creative journey or cultural perspective",
                 "Be passionate about music, art, or culture within the African diaspora",
@@ -195,7 +195,7 @@ export const shows: ShowConfig[] = [
             premise: "Part of a national movement to celebrate grassroots historic preservation, the project ensures that the spirit of Atlanta's most vital communities — their struggles, triumphs, and sheer vitality — is recorded and remembered through deep-dive oral histories.",
             format: "60–90 min Oral History / Conversation",
             recordingMethod: "Discord — The Cholla A/V Club",
-            discordInvite: "https://discord.gg/cholla-av-club",
+            discordInvite: "https://discord.gg/rW9rXze8gr",
             guestExpectations: [
                 "Have a personal connection or story related to Little Five Points or Atlanta's cultural history",
                 "Be prepared to dive deep into sensory details, legendary sights, and sounds of the community",
