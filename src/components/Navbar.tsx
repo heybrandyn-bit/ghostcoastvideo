@@ -36,8 +36,14 @@ export default function Navbar() {
                     <Link to="/community" className="block px-6 py-3 text-foreground/80 hover:text-primary hover:bg-muted/10 transition-colors uppercase tracking-wider text-xs border-b border-border/50">
                       Cholla Club
                     </Link>
-                    <Link to="/radio" className="block px-6 py-3 text-foreground/80 hover:text-primary hover:bg-muted/10 transition-colors uppercase tracking-wider text-xs">
+                    <Link to="/radio" className="block px-6 py-3 text-foreground/80 hover:text-primary hover:bg-muted/10 transition-colors uppercase tracking-wider text-xs border-b border-border/50">
                       Radio
+                    </Link>
+                    <Link to="/opportunity" className="block px-6 py-3 text-foreground/80 hover:text-primary hover:bg-muted/10 transition-colors uppercase tracking-wider text-xs border-b border-border/50">
+                      Account Opportunity
+                    </Link>
+                    <Link to="/opportunity-tech" className="block px-6 py-3 text-foreground/80 hover:text-primary hover:bg-muted/10 transition-colors uppercase tracking-wider text-xs">
+                      Tech Opportunity
                     </Link>
                   </div>
                 </div>
@@ -75,6 +81,8 @@ export default function Navbar() {
               <a href="https://linkedin.com" className="block text-foreground hover:text-primary py-2 pl-4 cursor-pointer uppercase tracking-wider text-xs">LinkedIn</a>
               <Link to="/community" className="block text-foreground hover:text-primary py-2 pl-4 cursor-pointer uppercase tracking-wider text-xs">Cholla Club</Link>
               <Link to="/radio" className="block text-foreground hover:text-primary py-2 pl-4 cursor-pointer uppercase tracking-wider text-xs">Radio</Link>
+              <Link to="/opportunity" className="block text-foreground hover:text-primary py-2 pl-4 cursor-pointer uppercase tracking-wider text-xs">Account Opportunity</Link>
+              <Link to="/opportunity-tech" className="block text-foreground hover:text-primary py-2 pl-4 cursor-pointer uppercase tracking-wider text-xs">Tech Opportunity</Link>
             </div>
 
             <a href="/#contact" className="block text-foreground hover:text-primary py-2 cursor-pointer uppercase tracking-wider">Contact</a>

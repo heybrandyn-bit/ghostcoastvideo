@@ -17,6 +17,8 @@ import PressKitPage from "./pages/PressKitPage.tsx";
 import MeetYourDreamsPage from "./pages/MeetYourDreamsPage.tsx";
 import ChollaPage from "./pages/ChollaPage.tsx";
 import AtlantaSpecialPage from "./pages/AtlantaSpecialPage.tsx";
+import OpportunityPage from "./pages/OpportunityPage.tsx";
+import OpportunityTechPage from "./pages/OpportunityTechPage.tsx";
 import { AudioProvider } from "./context/AudioContext.tsx";
 import GlobalAudioPlayer from "./components/GlobalPlayer.tsx";
 import "./globals.css";
@@ -90,6 +92,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <Route path="/radio/:slug" element={<ShowPage />} />
           <Route path="/community" element={<ChollaPage />} />
           <Route path="/atlanta-special" element={<AtlantaSpecialPage />} />
+          <Route path="/opportunity" element={<OpportunityPage />} />
+          <Route path="/opportunity-tech" element={<OpportunityTechPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <GlobalAudioPlayer />

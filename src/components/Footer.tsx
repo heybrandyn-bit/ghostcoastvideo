@@ -58,6 +58,8 @@ export default function Footer() {
             <h4 className="text-foreground mb-4 uppercase tracking-widest border-b border-border pb-2 inline-block">Company</h4>
             <ul className="space-y-2">
               <li><a href="/#about" className="text-muted-foreground hover:text-secondary transition-colors cursor-pointer">About Us</a></li>
+              <li><Link to="/opportunity" className="text-muted-foreground hover:text-secondary transition-colors cursor-pointer hover:pl-1 transition-all">Account Lead Opportunity</Link></li>
+              <li><Link to="/opportunity-tech" className="text-muted-foreground hover:text-secondary transition-colors cursor-pointer hover:pl-1 transition-all">Tech Lead Opportunity</Link></li>
               <li><a href="/#contact" className="text-muted-foreground hover:text-secondary transition-colors cursor-pointer">Contact</a></li>
               <li><a href="/blog/wp-login.php" className="text-muted-foreground hover:text-secondary transition-colors cursor-pointer">Login</a></li>
               <li><a href="/blog/privacy-policy/" className="text-muted-foreground hover:text-secondary transition-colors cursor-pointer">Privacy / Terms</a></li>

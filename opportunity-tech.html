@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Fastest Path to a $100K Career in Tech — Ghost Coast Video</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rose: #e8628a;
+      --rose-deep: #c4345a;
+      --plum: #6b2d5b;
+      --plum-light: #8a4178;
+      --lavender: #b68fd0;
+      --lavender-light: #e0d0f0;
+      --blush: #fce4ec;
+      --cream: #fdf6f9;
+      --mauve: #d4a0b9;
+      --gold: #d4a853;
+      --text: #2d1f2d;
+      --text-light: #6b5070;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 19px;
+      line-height: 1.75;
+    }
+
+    /* === ACCENT BAR === */
+    .accent-bar {
+      height: 6px;
+      background: linear-gradient(90deg, var(--rose), var(--lavender), var(--plum), var(--mauve), var(--rose));
+      background-size: 200% 100%;
+      animation: shimmer 4s ease infinite;
+    }
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* === URGENCY BAR === */
+    .urgency-bar {
+      background: linear-gradient(135deg, var(--plum), var(--rose-deep));
+      color: #fff;
+      text-align: center;
+      padding: 12px 20px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .urgency-bar span {
+      background: linear-gradient(90deg, #ffd1e0, #fff, #ffd1e0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* === CONTAINER === */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* === FLORAL DECORATION === */
+    .hero-decoration {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+      opacity: 0.5;
+      letter-spacing: 12px;
+    }
+
+    /* === PRE-HEADLINE === */
+    .pre-headline {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--rose);
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    /* === MAIN HEADLINE === */
+    .main-headline {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: clamp(32px, 5vw, 50px);
+      line-height: 1.2;
+      text-align: center;
+      color: var(--plum);
+      margin-bottom: 18px;
+    }
+    .main-headline .highlight {
+      position: relative;
+      display: inline;
+    }
+    .main-headline .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: -4px;
+      right: -4px;
+      height: 14px;
+      background: linear-gradient(90deg, var(--lavender-light), var(--blush));
+      z-index: -1;
+      transform: skewX(-2deg);
+      opacity: 0.7;
+    }
+    .main-headline .accent {
+      color: var(--rose);
+    }
+
+    /* === SUB-HEADLINE === */
+    .sub-headline {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 21px;
+      color: var(--text-light);
+      text-align: center;
+      margin-bottom: 44px;
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .sub-headline em {
+      color: var(--rose);
+      font-style: italic;
+    }
+
+    /* === DIVIDER === */
+    .divider {
+      border: none;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--mauve), var(--lavender), var(--mauve), transparent);
+      margin: 44px auto;
+      max-width: 300px;
+    }
+
+    .divider-dots {
+      text-align: center;
+      margin: 40px 0;
+      letter-spacing: 16px;
+      color: var(--lavender);
+      font-size: 14px;
+    }
+
+    /* === SECTION HEADLINE === */
+    .section-headline {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 27px;
+      color: var(--plum);
+      margin-bottom: 18px;
+      line-height: 1.35;
+    }
+    .section-headline .hl-glow {
+      position: relative;
+      display: inline;
+    }
+    .section-headline .hl-glow::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -3px;
+      right: -3px;
+      height: 12px;
+      background: linear-gradient(90deg, rgba(230, 180, 220, 0.4), rgba(182, 143, 208, 0.4));
+      z-index: -1;
+      transform: skewX(-1deg);
+    }
+    .section-headline .hl-rose {
+      color: var(--rose);
+    }
+    .section-headline .hl-gold {
+      color: var(--gold);
+    }
+
+    /* === BODY COPY === */
+    p { margin-bottom: 20px; }
+
+    .bold-line {
+      font-weight: bold;
+      font-size: 20px;
+      color: var(--plum);
+    }
+
+    /* === HIGHLIGHT BOX === */
+    .highlight-box {
+      background: linear-gradient(135deg, var(--blush), #f3e8f4);
+      border-left: 4px solid var(--rose);
+      padding: 22px 26px;
+      margin: 30px 0;
+      font-size: 18px;
+      border-radius: 0 12px 12px 0;
+    }
+    .highlight-box strong {
+      color: var(--rose-deep);
+    }
+
+    /* === GLOW CARD === */
+    .glow-card {
+      background: white;
+      border: 1px solid var(--lavender-light);
+      border-radius: 16px;
+      padding: 28px 30px;
+      margin: 30px 0;
+      box-shadow: 0 4px 24px rgba(107, 45, 91, 0.06), 0 0 0 1px rgba(182, 143, 208, 0.15);
+    }
+    .glow-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--plum);
+      margin-bottom: 12px;
+    }
+
+    /* === BULLET STACK === */
+    .bullet-stack {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0;
+    }
+    .bullet-stack li {
+      padding: 12px 0 12px 40px;
+      position: relative;
+      border-bottom: 1px solid rgba(182, 143, 208, 0.2);
+      font-size: 18px;
+    }
+    .bullet-stack li::before {
+      content: "◆";
+      position: absolute;
+      left: 8px;
+      top: 13px;
+      font-size: 10px;
+      color: var(--rose);
+    }
+    .bullet-stack li strong {
+      color: var(--plum);
+    }
+
+    /* === OBJECTION BLOCKS === */
+    .objection {
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 6px;
+      opacity: 0.7;
+    }
+    .objection-answer {
+      font-weight: bold;
+      color: var(--plum);
+      margin-bottom: 26px;
+    }
+
+    /* === EMPOWERMENT BLOCK === */
+    .empower-block {
+      text-align: center;
+      padding: 36px 28px;
+      margin: 40px 0;
+      background: linear-gradient(135deg, #f8edf3, #ede0f5, #f8edf3);
+      border-radius: 20px;
+      border: 1px solid var(--lavender-light);
+    }
+    .empower-block .icon {
+      font-size: 36px;
+      margin-bottom: 14px;
+    }
+    .empower-block h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 24px;
+      color: var(--plum);
+      margin-bottom: 10px;
+    }
+    .empower-block p {
+      font-size: 17px;
+      color: var(--text-light);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* === CTA BOX === */
+    .cta-box {
+      background: linear-gradient(135deg, var(--plum), #3d1a35);
+      color: #fff;
+      padding: 52px 40px;
+      text-align: center;
+      margin: 50px 0;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at 30% 20%, rgba(232, 98, 138, 0.15), transparent 60%),
+                  radial-gradient(ellipse at 70% 80%, rgba(182, 143, 208, 0.15), transparent 60%);
+      pointer-events: none;
+    }
+    .cta-box h2 {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 30px;
+      margin-bottom: 16px;
+      color: #fff;
+      position: relative;
+    }
+    .cta-box p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 17px;
+      margin-bottom: 28px;
+      position: relative;
+    }
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      padding: 18px 52px;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s;
+      position: relative;
+      box-shadow: 0 4px 20px rgba(232, 98, 138, 0.35);
+    }
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(232, 98, 138, 0.45);
+    }
+
+    /* === STEPS === */
+    .step {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 28px;
+      align-items: flex-start;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--lavender-light), var(--blush));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--plum);
+      border: 2px solid var(--lavender);
+    }
+    .step-content h4 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--plum);
+      margin-bottom: 4px;
+    }
+    .step-content p {
+      font-size: 17px;
+      color: var(--text-light);
+      margin-bottom: 0;
+    }
+
+    /* === GUARANTEE === */
+    .guarantee {
+      text-align: center;
+      padding: 32px;
+      margin: 40px 0;
+      border: 2px solid var(--lavender);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.6);
+    }
+    .guarantee h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: var(--plum);
+      margin-bottom: 10px;
+    }
+    .guarantee p {
+      color: var(--text-light);
+      font-size: 16px;
+    }
+
+    /* === PS === */
+    .ps {
+      margin-top: 40px;
+      font-size: 17px;
+      color: var(--text-light);
+    }
+    .ps strong {
+      color: var(--plum);
+    }
+
+    /* === PULL QUOTE === */
+    .pull-quote {
+      text-align: center;
+      padding: 30px 40px;
+      margin: 36px 0;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 24px;
+      color: var(--plum);
+      position: relative;
+    }
+    .pull-quote::before,
+    .pull-quote::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--rose), transparent);
+    }
+    .pull-quote::before { top: 0; }
+    .pull-quote::after { bottom: 0; }
+
+    /* === FOOTER === */
+    .footer {
+      text-align: center;
+      padding: 30px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text-light);
+      border-top: 1px solid var(--lavender-light);
+      margin-top: 60px;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 600px) {
+      .container { padding: 32px 18px 60px; }
+      .cta-box { padding: 36px 24px; }
+      .step { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="accent-bar"></div>
+
+<div class="urgency-bar">
+  <span>✦ Now Accepting Applications — Limited to 5 Account Leads Per Quarter ✦</span>
+</div>
+
+<div class="container">
+
+  <!-- DECORATION -->
+  <div class="hero-decoration">✦ ✦ ✦</div>
+
+  <!-- PRE-HEADLINE -->
+  <p class="pre-headline">For Ambitious Women Ready to Lead</p>
+
+  <!-- MAIN HEADLINE -->
+  <h1 class="main-headline">
+    Your Fastest Pathway to a<br>
+    <span class="highlight">$100,000 Career</span><br>
+    <span class="accent">in the Tech Industry</span>
+  </h1>
+
+  <!-- SUB-HEADLINE -->
+  <p class="sub-headline">
+    Become the face of a real engineering team — without writing a single line of code, managing developers, or building anything yourself. <em>Finally, a seat at the table.</em>
+  </p>
+
+  <hr class="divider">
+
+  <!-- OPENING -->
+  <p>Dear Future Account Lead,</p>
+
+  <p>The tech industry has a problem — and it's not a talent shortage.</p>
+
+  <p>It's a <strong>representation</strong> problem. The people building the technology rarely look like the people buying it. And the industry is desperate for professionals who can bridge that gap.</p>
+
+  <p class="bold-line">What if you could step into tech — not through a coding bootcamp, not through an entry-level grind — but as a leader from day one?</p>
+
+  <p>Not a "business opportunity." Not a course. Not some vague side hustle. A <strong>real position</strong> with a real engineering team, earning real project-based income, building a résumé that opens every door after it.</p>
+
+  <div class="pull-quote">
+    "The future of tech isn't just about who can write the code.<br>It's about who can lead the conversation."
+  </div>
+
+  <hr class="divider">
+
+  <!-- THE OPPORTUNITY -->
+  <h2 class="section-headline">The Tech Industry Needs <span class="hl-rose">Your Voice</span></h2>
+
+  <p>Everyone says "learn to code." Spend $15K on a bootcamp. Build a portfolio. Apply to 500 jobs and compete with thousands of applicants.</p>
+
+  <p>Meanwhile, the people <em>actually</em> making money in tech? They're not all engineers. Half of them are the ones who know how to <strong>build relationships, earn trust, and lead client conversations.</strong></p>
+
+  <div class="highlight-box">
+    <strong>That's the gap we're filling.</strong> We have the engineering team. We have the delivery pipeline. We have the portfolio. What we need is <strong>you</strong> — on the front lines, representing the brand, speaking to decision-makers.
+  </div>
+
+  <hr class="divider">
+
+  <!-- WHAT THIS IS -->
+  <h2 class="section-headline">What <span class="hl-glow">This Actually Is</span></h2>
+
+  <p>Ghost Coast Video is a production and engineering team that builds real software for real businesses:</p>
+
+  <ul class="bullet-stack">
+    <li>AI tools and automation systems</li>
+    <li>SaaS platforms and dashboards</li>
+    <li>Mobile applications</li>
+    <li>E-commerce builds and integrations</li>
+    <li>Fintech and healthtech projects</li>
+    <li>Custom CRMs, internal tools, chatbots</li>
+  </ul>
+
+  <p>We're looking for a small, curated group of <strong>Account Leads</strong> — professionals who serve as the client-facing front of the operation.</p>
+
+  <div class="glow-card">
+    <h3>Think of it this way:</h3>
+    <p>You're the trusted advisor clients meet and build a relationship with. Behind you stands an entire engineering team ready to deliver. You don't need to know how the code works — you need to know how <em>people</em> work.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- YOUR ROLE -->
+  <h2 class="section-headline">Your Role as an <span class="hl-glow">Account Lead</span></h2>
+
+  <ul class="bullet-stack">
+    <li><strong>Show up to 3–4 interviews and meetings</strong> per month — we schedule them for you</li>
+    <li><strong>Interface with HR and hiring managers</strong> as the professional face of the team</li>
+    <li><strong>Represent the brand</strong> in all client-facing conversations</li>
+    <li><strong>Build your network</strong> — every engagement strengthens your professional brand</li>
+  </ul>
+
+  <div class="highlight-box">
+    <strong>This is not a grind.</strong> Our team works aggressively behind the scenes to source and schedule your interviews. You're not cold-calling or doing outreach at midnight. We get you in the room — you just need to <em>show up and shine.</em>
+  </div>
+
+  <p>You handle the interview. You interface with HR. Our team handles <strong>everything else</strong> — the technical delivery, the project execution, the backend work. You're the face. We're the engine.</p>
+
+  <div class="divider-dots">◆ ◆ ◆</div>
+
+  <!-- EMPOWERMENT BLOCKS -->
+  <div class="empower-block">
+    <div class="icon">✦</div>
+    <h3>Lead. Don't Follow.</h3>
+    <p>This isn't an entry-level position. You're not fetching coffee or sitting in on meetings. You <em>are</em> the meeting. You're the professional that clients trust with their biggest decisions.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- THE NUMBERS -->
+  <h2 class="section-headline">Let's Talk <span class="hl-glow">Real Numbers</span></h2>
+
+  <p>We're not going to promise overnight riches. That's not what this is — and honestly, if someone promises you that, run. Here's what the compensation actually looks like:</p>
+
+  <div class="glow-card">
+    <h3>Your Compensation</h3>
+    <p><strong style="color: var(--rose);">$150/month base retainer</strong> — paid monthly, regardless of project volume.</p>
+    <p><strong style="color: var(--rose);">10% commission</strong> on every gig over $1,000 — and these projects regularly land in the $5K–$50K+ range.</p>
+  </div>
+
+  <p>Will you get wealthy overnight? <strong>No.</strong> But here's what most people miss — the money isn't even the most valuable part.</p>
+
+  <h2 class="section-headline">The <span class="hl-rose">Real</span> Payoff</h2>
+
+  <div class="empower-block">
+    <div class="icon">✦</div>
+    <h3>A Portfolio That Opens Every Door</h3>
+    <p>Every project you lead becomes a line item on your résumé. Every client relationship becomes a reference. Every engagement proves you belong in this industry.</p>
+  </div>
+
+  <p>Think about what happens when you apply for your dream tech role with <em>actual delivered projects</em> on your résumé. You're not "trying to break in" anymore. You have a <strong>track record.</strong></p>
+
+  <div class="highlight-box">
+    <strong>This is what happens:</strong> Your job applications start getting returned. Recruiters reach out to <em>you</em>. You're building the career you want — and getting paid while you train for the exact role you're after.
+  </div>
+
+  <p>The $150/month and the commissions? That's your income floor while you build. The portfolio, the network, the résumé? <strong>That's the asset that pays you for years.</strong></p>
+
+  <hr class="divider">
+
+  <!-- VS ALTERNATIVES -->
+  <h2 class="section-headline">Compare That to the <span class="hl-rose">Alternatives</span></h2>
+
+  <p class="objection">"I'll go to a coding bootcamp for $15K and hope someone hires me in 6 months..."</p>
+  <p class="objection-answer">Or you could be building a real portfolio this month — and getting paid while you do it.</p>
+
+  <p class="objection">"I'll apply to 200 tech jobs and compete with thousands..."</p>
+  <p class="objection-answer">Or you could have actual delivered projects on your résumé when you apply.</p>
+
+  <p class="objection">"I'll start my own agency and figure out hiring, delivery, operations..."</p>
+  <p class="objection-answer">Or you could plug into a team that already has all of that running.</p>
+
+  <hr class="divider">
+
+  <!-- WHAT YOU WALK AWAY WITH -->
+  <h2 class="section-headline">Beyond the Income — <span class="hl-glow">What You Build</span></h2>
+
+  <ul class="bullet-stack">
+    <li><strong>A tech industry résumé</strong> — "Account Lead at a software engineering firm" changes your entire career trajectory</li>
+    <li><strong>Executive-level conversations</strong> — You'll be speaking with CEOs, founders, and department heads</li>
+    <li><strong>Industry credibility</strong> — Backed by a team that ships production software</li>
+    <li><strong>Complete flexibility</strong> — Remote, async, fits around your life, your schedule, your terms</li>
+    <li><strong>No ceiling</strong> — The more doors you open, the more you earn. No salary cap. No waiting for permission.</li>
+  </ul>
+
+  <hr class="divider">
+
+  <!-- WHO THIS IS FOR -->
+  <h2 class="section-headline">This Role Was <span class="hl-rose">Made For You</span> If You're...</h2>
+
+  <ul class="bullet-stack">
+    <li>A natural connector who builds relationships effortlessly</li>
+    <li>Someone who's been told "you should be in sales" but wanted something more meaningful</li>
+    <li>A professional looking to pivot into tech without starting over</li>
+    <li>A consultant, coach, or advisor who already speaks to business owners daily</li>
+    <li>An agency owner who wants to add tech services without building a dev team</li>
+    <li>Anyone with a network and the confidence to pick up the phone</li>
+  </ul>
+
+  <hr class="divider">
+
+  <!-- HOW IT WORKS -->
+  <h2 class="section-headline">Three Steps to <span class="hl-glow">Get Started</span></h2>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <h4>Apply Below</h4>
+      <p>Tell us about yourself, your background, and the kind of clients in your network.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <h4>Intro Conversation</h4>
+      <p>We'll connect on a short call to see if it's a mutual fit. No pressure — just a real conversation.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <h4>Start Leading</h4>
+      <p>We'll equip you with positioning, talking points, and project examples. Then you start reaching out.</p>
+    </div>
+  </div>
+
+  <div class="guarantee">
+    <h3>No Cost. No Risk. No Catch.</h3>
+    <p>There's nothing to buy. No fee. No inventory. You're applying for a<br>
+    <strong>partnership position</strong> with a real engineering team.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <h2>Ready to Step Into Tech — On Your Terms?</h2>
+    <p>We're accepting only <strong>5 Account Leads</strong> this quarter.<br>If this page is still live, there's still a spot for you.</p>
+    <a href="#apply" class="cta-button">Apply Now ✦</a>
+  </div>
+
+  <!-- PS -->
+  <div class="ps">
+    <p><strong>P.S.</strong> — You don't need a tech background. You don't need a CS degree. You don't need to know what an API is. You need to be someone who can have a professional conversation, identify an opportunity, and follow through. We handle <em>everything</em> else.</p>
+
+    <p><strong>P.P.S.</strong> — Think about where you'll be in 12 months. Still scrolling job boards? Still "considering" a career change? Or leading real client conversations, earning project-based income, and building a résumé that speaks for itself. You already know which one you want.</p>
+  </div>
+
+  <div class="footer">
+    Ghost Coast Video &copy; 2026 — All Rights Reserved<br>
+    This is an application for a partnership position, not a job offer or guarantee of income.
+  </div>
+
+</div>
+
+</body>
+</html>

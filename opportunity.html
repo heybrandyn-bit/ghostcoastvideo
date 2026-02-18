@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Fastest Path to a $100K Career in Tech — Ghost Coast Video</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Inter:wght@400;600;700;900&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #fdfdf8;
+      color: #1a1a1a;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 19px;
+      line-height: 1.75;
+    }
+
+    /* === URGENCY BAR === */
+    .urgency-bar {
+      background: #cc0000;
+      color: #fff;
+      text-align: center;
+      padding: 10px 20px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    /* === CONTAINER === */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    /* === PRE-HEADLINE === */
+    .pre-headline {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #cc0000;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    /* === MAIN HEADLINE === */
+    .main-headline {
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.15;
+      text-align: center;
+      color: #1a1a1a;
+      margin-bottom: 16px;
+    }
+    .main-headline .highlight {
+      color: #cc0000;
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
+      text-underline-offset: 4px;
+    }
+
+    /* === SUB-HEADLINE === */
+    .sub-headline {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 22px;
+      color: #555;
+      text-align: center;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* === DIVIDER === */
+    .divider {
+      border: none;
+      border-top: 2px dashed #ccc;
+      margin: 40px auto;
+      max-width: 200px;
+    }
+
+    /* === SECTION HEADLINE === */
+    .section-headline {
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: 26px;
+      color: #1a1a1a;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .section-headline .hl-yellow {
+      background: #fff3a0;
+      padding: 0 6px;
+    }
+    .section-headline .hl-red {
+      color: #cc0000;
+    }
+
+    /* === BODY COPY === */
+    p {
+      margin-bottom: 20px;
+    }
+
+    .bold-line {
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .highlight-box {
+      background: #fff8dc;
+      border-left: 4px solid #cc0000;
+      padding: 20px 24px;
+      margin: 30px 0;
+      font-size: 18px;
+    }
+
+    .highlight-box strong {
+      color: #cc0000;
+    }
+
+    /* === BULLET STACK === */
+    .bullet-stack {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0;
+    }
+    .bullet-stack li {
+      padding: 10px 0 10px 36px;
+      position: relative;
+      border-bottom: 1px solid #eee;
+      font-size: 18px;
+    }
+    .bullet-stack li::before {
+      content: "✓";
+      position: absolute;
+      left: 4px;
+      top: 10px;
+      color: #cc0000;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    /* === GREYED OBJECTION === */
+    .objection {
+      color: #888;
+      font-style: italic;
+      margin-bottom: 6px;
+    }
+    .objection-answer {
+      font-weight: bold;
+      margin-bottom: 24px;
+    }
+
+    /* === CTA BOX === */
+    .cta-box {
+      background: #1a1a1a;
+      color: #fdfdf8;
+      padding: 48px 36px;
+      text-align: center;
+      margin: 50px 0;
+      border: 3px solid #cc0000;
+    }
+    .cta-box h2 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+    .cta-box p {
+      color: #ccc;
+      font-size: 17px;
+      margin-bottom: 24px;
+    }
+    .cta-button {
+      display: inline-block;
+      background: #cc0000;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 18px 48px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .cta-button:hover {
+      background: #a00;
+    }
+
+    /* === TESTIMONIAL STYLE === */
+    .testimonial {
+      border-left: 3px solid #333;
+      padding: 16px 24px;
+      margin: 30px 0;
+      font-style: italic;
+      color: #444;
+    }
+    .testimonial .sig {
+      font-style: normal;
+      font-weight: bold;
+      color: #1a1a1a;
+      margin-top: 10px;
+    }
+
+    /* === GUARANTEE === */
+    .guarantee {
+      text-align: center;
+      padding: 30px;
+      margin: 40px 0;
+      border: 2px dashed #cc0000;
+    }
+    .guarantee h3 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      color: #cc0000;
+      margin-bottom: 10px;
+    }
+
+    /* === PS SECTION === */
+    .ps {
+      margin-top: 40px;
+      font-size: 17px;
+      color: #555;
+    }
+    .ps strong {
+      color: #1a1a1a;
+    }
+
+    /* === FOOTER === */
+    .footer {
+      text-align: center;
+      padding: 30px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #999;
+      border-top: 1px solid #eee;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="urgency-bar">
+  ⚡ NOW ACCEPTING APPLICATIONS — LIMITED TO 5 ACCOUNT LEADS PER QUARTER ⚡
+</div>
+
+<div class="container">
+
+  <!-- PRE-HEADLINE -->
+  <p class="pre-headline">Attention: Ambitious Professionals Who Want Into Tech</p>
+
+  <!-- MAIN HEADLINE -->
+  <h1 class="main-headline">
+    Your Fastest Pathway to a<br>
+    <span class="highlight">$100,000 Career</span><br>
+    in the Tech Industry
+  </h1>
+
+  <!-- SUB-HEADLINE -->
+  <p class="sub-headline">
+    Become the face of a real engineering team — without writing a single line of code, managing developers, or building anything yourself.
+  </p>
+
+  <hr class="divider">
+
+  <!-- OPENING COPY -->
+  <p>Dear Future Account Lead,</p>
+
+  <p>What if you could walk into any room — any boardroom, any networking event, any LinkedIn DM — and introduce yourself as the front person for a <strong>real, producing tech team</strong>?</p>
+
+  <p>Not a "business opportunity." Not a course. Not some vague partnership where you're left figuring everything out on your own.</p>
+
+  <p class="bold-line">A real role. Real projects. Real income. Real résumé.</p>
+
+  <p>That's exactly what we're offering here — and if you're the right fit, this single page could change the trajectory of your entire career.</p>
+
+  <hr class="divider">
+
+  <!-- SECTION: THE PROBLEM -->
+  <h2 class="section-headline">Here's the Problem With <span class="hl-red">"Breaking Into Tech"</span></h2>
+
+  <p>Everyone says "learn to code." Go get a bootcamp certificate. Build a portfolio. Apply to 500 jobs and pray.</p>
+
+  <p>Meanwhile, the people actually making money in tech? <strong>They're not all coders.</strong> Half of them are the ones who know how to talk to clients, close deals, and manage relationships.</p>
+
+  <p>The industry doesn't have a shortage of developers. It has a shortage of people who can <em>sell the work, manage the client, and show up as a professional.</em></p>
+
+  <div class="highlight-box">
+    <strong>That's the gap we're filling.</strong> We have the engineering. We have the delivery pipeline. We have the portfolio. What we need is <strong>you</strong> — on the front lines, talking to decision-makers, opening doors.
+  </div>
+
+  <hr class="divider">
+
+  <!-- SECTION: WHAT THIS IS -->
+  <h2 class="section-headline">What <span class="hl-yellow">This Actually Is</span></h2>
+
+  <p>Ghost Coast Video is a production and engineering team that builds real software for real businesses:</p>
+
+  <ul class="bullet-stack">
+    <li>AI tools and automation systems</li>
+    <li>SaaS platforms and dashboards</li>
+    <li>Mobile applications</li>
+    <li>E-commerce builds and integrations</li>
+    <li>Fintech and healthtech projects</li>
+    <li>Custom CRMs, internal tools, chatbots</li>
+  </ul>
+
+  <p>We're looking for a small, curated group of <strong>Account Leads</strong> — professionals who serve as the client-facing front of the operation.</p>
+
+  <p>You don't manage developers. You don't run sprints. You don't debug code at 2 AM.</p>
+
+  <p class="bold-line">You open doors. We deliver the product. Everyone gets paid.</p>
+
+  <hr class="divider">
+
+  <!-- SECTION: YOUR ROLE -->
+  <h2 class="section-headline">Your Role as an <span class="hl-yellow">Account Lead</span></h2>
+
+  <p>This is what your day-to-day looks like:</p>
+
+  <ul class="bullet-stack">
+    <li>Show up to 3–4 interviews and client meetings per month</li>
+    <li>Interface with HR departments and hiring managers</li>
+    <li>Represent the team professionally in all client-facing conversations</li>
+    <li>Build your professional network and résumé with every engagement</li>
+  </ul>
+
+  <div class="highlight-box">
+    <strong>Here's the thing — this isn't a grind.</strong> Our team works aggressively behind the scenes to source and schedule your interviews. You're not cold-calling. You're not prospecting. You're not doing outreach at midnight. We get you in the room — you just need to <em>show up and perform.</em>
+  </div>
+
+  <p>You handle the interview. You interface with HR. Our team handles <strong>everything else</strong> — the technical delivery, the project execution, the backend work. You're the face. We're the engine.</p>
+
+  <hr class="divider">
+
+  <!-- SECTION: THE NUMBERS -->
+  <h2 class="section-headline">Let's Talk <span class="hl-yellow">Real Numbers</span></h2>
+
+  <p>We're not going to promise you'll be rich next month. That's not what this is. Here's what the compensation actually looks like:</p>
+
+  <div class="highlight-box">
+    <strong>$150/month base retainer</strong> — paid monthly, regardless of project volume.<br><br>
+    <strong>10% commission</strong> on every gig over $1,000 — and these projects regularly land in the $5K–$50K+ range.
+  </div>
+
+  <p>Will you get wealthy overnight? <strong>No.</strong> And anyone who tells you otherwise is lying.</p>
+
+  <p>But here's what you <em>will</em> get — and this is the part most people miss:</p>
+
+  <h2 class="section-headline">The <span class="hl-red">Real</span> Payoff</h2>
+
+  <p class="bold-line">A portfolio of actually successful, delivered tech projects — with your name on them.</p>
+
+  <p>Think about what that means for your career. Every project you lead becomes a line item on your résumé. Every client relationship becomes a reference. Every engagement proves you can operate at a professional level in the tech industry.</p>
+
+  <div class="highlight-box">
+    <strong>This is what happens:</strong> Your job applications start getting returned. Recruiters start reaching out. You're no longer "trying to break into tech" — you're someone with a <em>track record</em> of leading real engagements while you train for the exact role you want.
+  </div>
+
+  <p>The $150/month and the 10% commissions? That's your income floor while you build. The portfolio, the network, the résumé? <strong>That's the asset that pays you for years.</strong></p>
+
+  <hr class="divider">
+
+  <!-- SECTION: VS THE ALTERNATIVES -->
+  <h2 class="section-headline">Compare That to the <span class="hl-red">Alternatives</span></h2>
+
+  <p class="objection">"I'll go to a coding bootcamp for $15K and hope someone hires me in 6 months..."</p>
+  <p class="objection-answer">Or you could be building a real portfolio <em>this month</em> — and getting paid while you do it.</p>
+
+  <p class="objection">"I'll apply to 200 tech jobs and compete with 10,000 other applicants..."</p>
+  <p class="objection-answer">Or you could have actual delivered projects on your résumé when you apply.</p>
+
+  <p class="objection">"I'll start my own agency and figure out hiring, delivery, ops..."</p>
+  <p class="objection-answer">Or you could plug into a team that already has all of that running and focus on what you're good at.</p>
+
+  <hr class="divider">
+
+  <!-- SECTION: WHAT YOU GET -->
+  <h2 class="section-headline">Here's What You Walk Away With — <span class="hl-yellow">Even Beyond the Money</span></h2>
+
+  <ul class="bullet-stack">
+    <li><strong>A real tech résumé</strong> — "Account Lead at a software engineering firm" looks different than anything else you could put on LinkedIn</li>
+    <li><strong>Access to top decision-makers</strong> — You'll be speaking with CEOs, founders, and department heads</li>
+    <li><strong>Industry credibility</strong> — Backed by a team that actually ships production software</li>
+    <li><strong>Flexibility</strong> — Remote, async, work from anywhere. Fit this around your existing career or build it into your main thing</li>
+    <li><strong>No ceiling</strong> — The more doors you open, the more you earn. No salary cap. No waiting for a promotion.</li>
+  </ul>
+
+  <hr class="divider">
+
+  <!-- SECTION: WHO THIS IS FOR -->
+  <h2 class="section-headline">Who This Is <span class="hl-red">Perfect</span> For</h2>
+
+  <ul class="bullet-stack">
+    <li>Salespeople who want to sell something with real substance</li>
+    <li>Account managers looking for a higher-earning model</li>
+    <li>Consultants who already talk to business owners daily</li>
+    <li>Agency owners who want to add tech services without building a dev team</li>
+    <li>Freelancers with existing client relationships</li>
+    <li>Career changers who want into tech <em>without</em> learning to code</li>
+    <li>Anyone with a network of business owners and the confidence to pick up the phone</li>
+  </ul>
+
+  <hr class="divider">
+
+  <!-- SECTION: HOW IT WORKS -->
+  <h2 class="section-headline">How It Works — <span class="hl-yellow">3 Steps</span></h2>
+
+  <p><strong>Step 1: Apply Below</strong><br>
+  Tell us about yourself, your background, and what kind of clients you have access to.</p>
+
+  <p><strong>Step 2: Intro Call</strong><br>
+  We'll hop on a short call to see if it's a mutual fit. No pressure, no pitch — just a real conversation.</p>
+
+  <p><strong>Step 3: Start Opening Doors</strong><br>
+  Once you're in, we'll equip you with everything you need — positioning, talking points, project examples — and you start reaching out to your network.</p>
+
+  <div class="guarantee">
+    <h3>NO RISK. NO COST. NO CATCH.</h3>
+    <p>There's no buy-in. No fee. No inventory. You're not purchasing anything.<br>
+    You're applying for a <strong>partnership position</strong> with a real engineering team.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <h2>Ready to Get Into Tech the Smart Way?</h2>
+    <p>We're only accepting <strong>5 Account Leads</strong> this quarter.<br>If this page is still live, there's still a spot.</p>
+    <a href="#apply" class="cta-button">Apply Now →</a>
+  </div>
+
+  <!-- PS SECTION -->
+  <div class="ps">
+    <p><strong>P.S.</strong> — You don't need a tech background. You don't need a degree. You don't need to know what an API is. You need to be someone who can have a professional conversation, identify an opportunity, and follow through. We handle <em>everything</em> else.</p>
+
+    <p><strong>P.P.S.</strong> — Think about where you'll be in 12 months. Still scrolling job boards? Still "thinking about" getting into tech? Or actually doing it — with real projects, real clients, and real income on your résumé. The choice is yours.</p>
+  </div>
+
+  <div class="footer">
+    Ghost Coast Video &copy; 2026 — All Rights Reserved<br>
+    This is an application for a partnership position, not a job offer or guarantee of income.
+  </div>
+
+</div>
+
+</body>
+</html>
