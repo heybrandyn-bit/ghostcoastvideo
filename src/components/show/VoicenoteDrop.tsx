@@ -1,13 +1,15 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Mic, Square, Play, Pause, Download, RotateCcw, Send } from 'lucide-react';
+import { Mic, Square, Play, Pause, Download, RotateCcw, Send, Check, AlertCircle } from 'lucide-react';
 import { ShowConfig } from '../../data/showData';
 
 interface VoicenoteDropProps {
     show: ShowConfig;
 }
 
+type Status = 'idle' | 'recording' | 'recorded' | 'playing' | 'sending' | 'sent';
+
 export default function VoicenoteDrop({ show }: VoicenoteDropProps) {
-    const [status, setStatus] = useState<'idle' | 'recording' | 'recorded' | 'playing'>('idle');
+    const [status, setStatus] = useState<Status>('idle');
     const [audioUrl, setAudioUrl] = useState<string | null>(null);
     const [audioBlob, setAudioBlob] = useState<Blob | null>(null);
     const [recordingTime, setRecordingTime] = useState(0);
@@ -102,6 +104,7 @@ export default function VoicenoteDrop({ show }: VoicenoteDropProps) {
         setRecordingTime(0);
         setPlaybackTime(0);
         setPlaybackDuration(0);
+        setErrorMsg(null);
     };
 
     const downloadRecording = () => {
@@ -114,11 +117,30 @@ export default function VoicenoteDrop({ show }: VoicenoteDropProps) {
         URL.revokeObjectURL(url);
     };
 
-    const sendVoicenote = () => {
-        downloadRecording();
-        const subject = encodeURIComponent(`Voicenote for ${show.title}`);
-        const body = encodeURIComponent(`Hey! I recorded a voicenote for ${show.title}. The recording is attached as a .webm file.\n\nPlease find the attached voicenote.`);
-        window.location.href = `mailto:info@ghostcoastvideo.com?subject=${subject}&body=${body}`;
+    const sendVoicenote = async () => {
+        if (!audioBlob) return;
+        setErrorMsg(null);
+        setStatus('sending');
+        try {
+            const formData = new FormData();
+            formData.append('audio', audioBlob, `voicenote-${show.slug}-${Date.now()}.webm`);
+            formData.append('show_slug', show.slug);
+            formData.append('show_title', show.title);
+            const res = await fetch('/blog/?rest_route=/gcv/v1/voicenote', {
+                method: 'POST',
+                body: formData,
+            });
+            const data = await res.json().catch(() => ({ ok: false, message: 'Server returned an unreadable response.' }));
+            if (res.ok && data?.ok) {
+                setStatus('sent');
+            } else {
+                throw new Error(data?.message || `Upload failed (HTTP ${res.status}).`);
+            }
+        } catch (e: unknown) {
+            const msg = e instanceof Error ? e.message : 'Upload failed.';
+            setErrorMsg(`${msg} Try Download to save it locally and email it to hello@ghostcoast.video.`);
+            setStatus('recorded');
+        }
     };
 
     useEffect(() => {
@@ -146,7 +168,7 @@ export default function VoicenoteDrop({ show }: VoicenoteDropProps) {
                         </p>
                         <div className="font-mono text-[10px] text-muted-foreground space-y-1">
                             <p>▸ Maximum recording length: 2 minutes</p>
-                            <p>▸ Recordings are saved as .webm files</p>
+                            <p>▸ Recordings are uploaded straight to the host</p>
                             <p>▸ Your message may be featured on the show</p>
                         </div>
                     </div>
@@ -157,27 +179,29 @@ export default function VoicenoteDrop({ show }: VoicenoteDropProps) {
                         <div className="bg-background border border-border p-4 relative">
                             <div className="flex items-center justify-between mb-4">
                                 <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">Rec Module</span>
-                                <span className={`font-mono text-[10px] uppercase tracking-widest ${status === 'recording' ? 'text-primary animate-pulse' : status === 'recorded' || status === 'playing' ? 'text-accent' : 'text-muted-foreground'
+                                <span className={`font-mono text-[10px] uppercase tracking-widest ${status === 'recording' ? 'text-primary animate-pulse' : status === 'recorded' || status === 'playing' || status === 'sending' || status === 'sent' ? 'text-accent' : 'text-muted-foreground'
                                     }`}>
                                     {status === 'idle' && '● STANDBY'}
                                     {status === 'recording' && '● REC'}
                                     {status === 'recorded' && '■ STOPPED'}
                                     {status === 'playing' && '▶ PLAYBACK'}
+                                    {status === 'sending' && '↑ UPLOADING'}
+                                    {status === 'sent' && '✓ DELIVERED'}
                                 </span>
                             </div>
 
                             {/* Tape reels visual */}
                             <div className="flex items-center justify-center gap-8 py-6">
-                                <div className={`w-16 h-16 border-2 rounded-full flex items-center justify-center ${status === 'recording' ? 'border-primary animate-spin' : status === 'playing' ? 'border-accent animate-spin' : 'border-border'
+                                <div className={`w-16 h-16 border-2 rounded-full flex items-center justify-center ${status === 'recording' ? 'border-primary animate-spin' : status === 'playing' || status === 'sending' ? 'border-accent animate-spin' : status === 'sent' ? 'border-accent' : 'border-border'
                                     }`} style={{ animationDuration: '3s' }}>
                                     <div className="w-4 h-4 rounded-full bg-border"></div>
                                 </div>
                                 <div className="flex-1 h-0.5 bg-border max-w-16 relative">
-                                    {status === 'recording' && (
+                                    {(status === 'recording' || status === 'sending') && (
                                         <div className="absolute inset-0 bg-primary/50 animate-pulse"></div>
                                     )}
                                 </div>
-                                <div className={`w-16 h-16 border-2 rounded-full flex items-center justify-center ${status === 'recording' ? 'border-primary animate-spin' : status === 'playing' ? 'border-accent animate-spin' : 'border-border'
+                                <div className={`w-16 h-16 border-2 rounded-full flex items-center justify-center ${status === 'recording' ? 'border-primary animate-spin' : status === 'playing' || status === 'sending' ? 'border-accent animate-spin' : status === 'sent' ? 'border-accent' : 'border-border'
                                     }`} style={{ animationDuration: '3s', animationDirection: 'reverse' }}>
                                     <div className="w-4 h-4 rounded-full bg-border"></div>
                                 </div>
@@ -186,15 +210,25 @@ export default function VoicenoteDrop({ show }: VoicenoteDropProps) {
                             {/* Timer */}
                             <div className="text-center font-mono text-2xl text-foreground tracking-widest">
                                 {status === 'recording' && formatTime(recordingTime)}
-                                {(status === 'recorded' || status === 'playing') && `${formatTime(playbackTime)} / ${formatTime(playbackDuration || recordingTime)}`}
+                                {(status === 'recorded' || status === 'playing' || status === 'sending') && `${formatTime(playbackTime)} / ${formatTime(playbackDuration || recordingTime)}`}
+                                {status === 'sent' && '✓ SENT'}
                                 {status === 'idle' && '00:00'}
                             </div>
                         </div>
 
                         {/* Error message */}
                         {errorMsg && (
-                            <div className="bg-primary/10 border border-primary p-3 font-mono text-xs text-primary">
-                                {errorMsg}
+                            <div className="bg-primary/10 border border-primary p-3 font-mono text-xs text-primary flex items-start gap-2">
+                                <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                                <span>{errorMsg}</span>
+                            </div>
+                        )}
+
+                        {/* Success message */}
+                        {status === 'sent' && (
+                            <div className="bg-accent/10 border border-accent p-3 font-mono text-xs text-accent flex items-start gap-2">
+                                <Check className="w-4 h-4 shrink-0 mt-0.5" />
+                                <span>Voicenote delivered. Thanks — we&apos;ll listen.</span>
                             </div>
                         )}
 
@@ -254,6 +288,26 @@ export default function VoicenoteDrop({ show }: VoicenoteDropProps) {
                                         Send to Host
                                     </button>
                                 </div>
+                            )}
+
+                            {status === 'sending' && (
+                                <button
+                                    disabled
+                                    className="flex items-center gap-3 bg-accent/70 text-background px-8 py-4 font-mono text-xs uppercase tracking-widest font-bold cursor-wait"
+                                >
+                                    <Send className="w-4 h-4 animate-pulse" />
+                                    Uploading…
+                                </button>
+                            )}
+
+                            {status === 'sent' && (
+                                <button
+                                    onClick={resetRecording}
+                                    className="flex items-center gap-2 bg-card border border-border px-5 py-3 font-mono text-[10px] uppercase tracking-widest hover:border-primary text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+                                >
+                                    <RotateCcw className="w-3.5 h-3.5" />
+                                    Record Another
+                                </button>
                             )}
                         </div>
                     </div>
